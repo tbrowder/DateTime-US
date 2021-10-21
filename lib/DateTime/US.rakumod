@@ -8,48 +8,50 @@ has $.dst-exceptions;
 # All US timezone data are from https://timetemperature.com
 constant @tz is export = <ast est cst mst pst akst hast wst chst>;
 constant %tzones = [
-    ast  => { 
+    ast  => {
               utc  => -4,
               name => "Atlantic",
             },
-    est  => { 
+    est  => {
               utc  => -5,
               name => "Eastern",
             },
-    cst  => { 
+    cst  => {
               utc  => -6,
               name => "Central",
             },
-    mst  => { 
+    mst  => {
               utc  => -7,
               name => "Mountain",
             },
-    pst  => { 
+    pst  => {
               utc  => -8,
               name => "Pacific",
             },
-    akst => { 
+    akst => {
               utc  => -9,
               name => "Alaska",
             },
-    hast => { 
+    hast => {
               utc  => -10,
               name => "Hawaii-Aleutian",
             },
-    wst  => { 
+    wst  => {
               utc  => -11,
               name => "Samoa",
             },
-    chst => { 
+    chst => {
               utc  => +10,
               name => "Chamorro",
             },
-
 ];
 
 constant %dst-exceptions = [
     mst  => {
-              az => 0,
+              az => {
+                      name => "Arizona",
+                      does-dst => 0,
+              }
             },
 ];
 
@@ -61,12 +63,9 @@ submethod TWEAK {
           Execute 'DateTime::US.show' to see all US timezones.
         HERE
     }
-    # set the zones attributes
+    # set the zones' attributes
     $!name     = %tzones{$!timezone.lc}<name>;
     $!utc      = %tzones{$!timezone.lc}<utc>;
-}
-
-method is-dst(DateTime $dt) {
 }
 
 method show {
@@ -96,8 +95,13 @@ method show {
         my $nam  = %tzones{$tz}<name>;
         my $name = $nam ~ ' Standard Time';
         say $name;
+        my %h = %(%dst-exceptions{$tz});
+        for %h.keys.sort -> $k {
+            my $name = %h{$k}<name>;
+            my $dst = %h{$k}<does-dst>;
+            my $exc  = $dst ?? 'Yes' !! 'No';
+            say "  $name";
+            say "    Does DST? $exc";
+        }
     }
 }
-
-
-

@@ -16,8 +16,8 @@ dies-ok {
 }
 
 # All US timezone data are from https://timetemperature.com
-my %tz = set <ast est cst mst pst akst hast wst chst az>;
 for @tz -> $timezone {
+
     my $tz;
     lives-ok {
         $tz = DateTime::US.new: :$timezone;
@@ -63,5 +63,4 @@ for @tz -> $timezone {
     }
 }
 
-
-done-testing;
+#done-testing;
