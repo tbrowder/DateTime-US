@@ -3,52 +3,54 @@ unit class DateTime::US:auth<cpan:TBROWDER>;
 has $.timezone is required;
 has $.name;
 has $.utc;
-has $.does-dst;
+has $.dst-exceptions;
 
 # All US timezone data are from https://timetemperature.com
-constant @tz is export = <ast est cst mst pst akst hast wst chst az>;
+constant @tz is export = <ast est cst mst pst akst hast wst chst>;
 constant %tzones = [
-   ast => { utc => -4,
-            name => "Atlantic",
-            does-dst => 1,
-          },
-   est  => { utc => -5,
-            name => "Eastern",
-            does-dst => 1,
-          },
-   cst => { utc => -6,
-            name => "Central",
-            does-dst => 1,
-          },
-   mst => { utc => -7,
-            name => "Mountain",
-            does-dst => 1,
-          },
-   pst => { utc => -8,
-            name => "Pacific",
-            does-dst => 1,
-          },
-   akst => { utc => -9,
-            name => "Alaska",
-            does-dst => 1,
-          },
-   hast => { utc => -10,
-            name => "Hawaii-Aleutian",
-            does-dst => 1,
-          },
-   wst => { utc => -11,
-            name => "Samoa",
-            does-dst => 1,
-          },
-   chst => { utc => +10,
-            name => "Chamorro",
-            does-dst => 1,
-          },
+    ast  => { 
+              utc  => -4,
+              name => "Atlantic",
+            },
+    est  => { 
+              utc  => -5,
+              name => "Eastern",
+            },
+    cst  => { 
+              utc  => -6,
+              name => "Central",
+            },
+    mst  => { 
+              utc  => -7,
+              name => "Mountain",
+            },
+    pst  => { 
+              utc  => -8,
+              name => "Pacific",
+            },
+    akst => { 
+              utc  => -9,
+              name => "Alaska",
+            },
+    hast => { 
+              utc  => -10,
+              name => "Hawaii-Aleutian",
+            },
+    wst  => { 
+              utc  => -11,
+              name => "Samoa",
+            },
+    chst => { 
+              utc  => +10,
+              name => "Chamorro",
+            },
 
-   az => { utc => -7,
-            name => "Arizona",
-            does-dst => 0,
-          },
+];
+
+constant %dst-exceptions = [
+    mst  => {
+              az => 0,
+            },
 ];
 
 submethod TWEAK {
@@ -62,26 +64,38 @@ submethod TWEAK {
     # set the zones attributes
     $!name     = %tzones{$!timezone.lc}<name>;
     $!utc      = %tzones{$!timezone.lc}<utc>;
-    $!does-dst = %tzones{$!timezone.lc}<does-dst>;
 }
 
 method is-dst(DateTime $dt) {
 }
 
 method show {
-    say "US timezones:";
+    say "US timezone and DST data";
+    say "========================";
+
+    say "Timezones";
+    say "---------";
     for @tz -> $tz {
-        my $ans  = %tzones{$tz}<does-dst> ?? 'Yes' !! 'No';
         my $nam  = %tzones{$tz}<name>;
-        my $name = $nam ne 'az' ?? $nam ~ ' Standard Time' !! 'State of ' ~ $nam;
+        my $name = $nam ~ ' Standard Time';
         my $oset = %tzones{$tz}<utc>;
         $oset = $oset > 0 ?? '+' ~ $oset !! $oset;
+        my $exc  = %dst-exceptions{$tz.lc}:exists ?? 'Yes' !! 'No';
         #print qq:to/HERE/;
         say qq:to/HERE/;
         {$tz.uc} - $name
             Offset from UTC: $oset
-            Recognizes DST? $ans
+            Exceptions to DST? $exc
         HERE
+    }
+
+    say "DST exceptions";
+    say "--------------";
+    for @tz -> $tz {
+        next unless %dst-exceptions{$tz}:exists;
+        my $nam  = %tzones{$tz}<name>;
+        my $name = $nam ~ ' Standard Time';
+        say $name;
     }
 }
 
