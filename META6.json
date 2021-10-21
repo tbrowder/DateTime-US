@@ -12,7 +12,8 @@
   "name": "DateTime::US",
   "perl": "6.d",
   "provides": {
-    "DateTime::US": "lib/DateTime/US.rakumod"
+    "DateTime::US": "lib/DateTime/US.rakumod",
+    "DateTime::US::DST": "lib/DateTime/US/DST.rakumod"
   },
   "resources": [
   ],
