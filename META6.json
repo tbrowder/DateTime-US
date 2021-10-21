@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "blah blah blah",
+  "description": "Provides timezone and DST infomation for the US",
   "license": "Artistic-2.0",
   "name": "DateTime::US",
   "perl": "6.d",
@@ -16,7 +16,7 @@
   },
   "resources": [
   ],
-  "source-url": "",
+  "source-url": "https://github.com/tbrowder/DateTime-US.git",
   "tags": [
   ],
   "test-depends": [

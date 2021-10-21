@@ -1,7 +1,9 @@
+[![Actions Status](https://github.com/tbrowder/DateTime-US/workflows/test/badge.svg)](https://github.com/tbrowder/DateTime-US/actions)
+
 NAME
 ====
 
-DateTime::US - blah blah blah
+DateTime::US - Provides timezone and DST infomation for the US
 
 SYNOPSIS
 ========

@@ -1,8 +1,12 @@
 unit class DateTime::US:auth<cpan:TBROWDER>;
 
-has $.tzname is required;
+has $.timezone is required;
+has $.name;
+has $.utc;
+has $.does-dst;
 
-constant @tz = <ast est cst mst pst akst hast wst chst az>;
+# All US timezone data are from https://timetemperature.com
+constant @tz is export = <ast est cst mst pst akst hast wst chst az>;
 constant %tzones = [
    ast => { utc => -4,
             name => "Atlantic",
@@ -25,7 +29,7 @@ constant %tzones = [
             does-dst => 1,
           },
    akst => { utc => -9,
-            name => "Alaskan",
+            name => "Alaska",
             does-dst => 1,
           },
    hast => { utc => -10,
@@ -36,8 +40,8 @@ constant %tzones = [
             name => "Samoa",
             does-dst => 1,
           },
-   chst => { utc => +1,
-            name => "Chamarrow",
+   chst => { utc => +10,
+            name => "Chamorro",
             does-dst => 1,
           },
 
@@ -49,9 +53,16 @@ constant %tzones = [
 
 submethod TWEAK {
     # only certain names are recognized
-    unless %tzones{$!tzname.lc}:exists {
-        die "FATAL: US timezone $!tzname.uc is not recognized.";
+    unless %tzones{$!timezone.lc}:exists {
+        die qq:to/HERE/;
+        FATAL: US timezone {$!timezone.uc} is not recognized.
+          Execute 'DateTime::US.show' to see all US timezones.
+        HERE
     }
+    # set the zones attributes
+    $!name     = %tzones{$!timezone.lc}<name>;
+    $!utc      = %tzones{$!timezone.lc}<utc>;
+    $!does-dst = %tzones{$!timezone.lc}<does-dst>;
 }
 
 method is-dst(DateTime $dt) {
@@ -63,10 +74,12 @@ method show {
         my $ans  = %tzones{$tz}<does-dst> ?? 'Yes' !! 'No';
         my $nam  = %tzones{$tz}<name>;
         my $name = $nam ne 'az' ?? $nam ~ ' Standard Time' !! 'State of ' ~ $nam;
-
-        print qq:to/HERE/;
-        {$tz.uc} - {%tzones{$tz}<name>} Standard Time
-            Offset from UTC: {%tzones{$tz}<utc>}
+        my $oset = %tzones{$tz}<utc>;
+        $oset = $oset > 0 ?? '+' ~ $oset !! $oset;
+        #print qq:to/HERE/;
+        say qq:to/HERE/;
+        {$tz.uc} - $name
+            Offset from UTC: $oset
             Recognizes DST? $ans
         HERE
     }
