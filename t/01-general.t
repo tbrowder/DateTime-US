@@ -2,11 +2,14 @@ use Test;
 
 use DateTime::US;
 
-plan 30;
+plan 29;
 
+=begin comment
 lives-ok {
-    DateTime::US.show;
+    shell( 'DateTime::US'.show 1> /dev/null );
+    #(DateTime::US.show);
 };
+=end comment
 
 dies-ok {
     my $tz = DateTime::US.new;
@@ -125,4 +128,5 @@ dies-ok {
     is $tz.utc, +10;
 }
 
+done-testing;
 
