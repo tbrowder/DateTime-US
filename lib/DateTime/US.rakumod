@@ -6,7 +6,9 @@ has $.utc;
 has $.dst-exceptions;
 
 # All US timezone data are from https://timetemperature.com
-constant @tz is export = <ast est cst mst pst akst hast wst chst>;
+constant @tz is export = <ast est cst 
+                          mst pst akst 
+                          hast wst chst>;
 constant %tzones = [
     ast  => {
               utc  => -4,
