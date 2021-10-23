@@ -34,29 +34,29 @@ my $localtime = $tz.to-local :utc($sunrisez);
 
 =head2 Class DateTime::US methods
 
-=list method to-localtime(DateTime :$utc! --> DateTime) {...}
+=head3 method to-localtime(DateTime :$utc! --> DateTime) {...}
 
 Given a time in UTC, convert to local time and adjust for DST.
 
-=list method to-utc(DateTime :$localtime! --> DateTime) {...}
+=head3 method to-utc(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 
 =head2 DateTime::US subroutines
 
-=list sub begin-dst($year --> DateTime) {...}
+=head3 sub begin-dst($year --> DateTime) {...}
 
 Return the time when DST begins.
 
-=list sub end-dst($year --> DateTime) {..}
+=head3 sub end-dst($year --> DateTime) {..}
 
 Return the time when DST ends.
 
-=list sub is-dst(DateTime :$localtime! --> Bool) {...}
+=head3 sub is-dst(DateTime :$localtime! --> Bool) {...}
 
 Return True if the local time is DST, otherwise return False.
 
-=list sub show-us-data(--> Str) {...}
+=head3 sub show-us-data(--> Str) {...}
 
 List the time zone and DST data being used.
 

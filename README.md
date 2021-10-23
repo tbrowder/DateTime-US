@@ -30,48 +30,30 @@ The main use case that motivated the module is to convert time in UTC to local t
 Class DateTime::US methods
 --------------------------
 
-list
-====
-
-method to-localtime(DateTime :$utc! --> DateTime) {...}
+### method to-localtime(DateTime :$utc! --> DateTime) {...}
 
 Given a time in UTC, convert to local time and adjust for DST.
 
-list
-====
-
-method to-utc(DateTime :$localtime! --> DateTime) {...}
+### method to-utc(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 
 DateTime::US subroutines
 ------------------------
 
-list
-====
-
-sub begin-dst($year --> DateTime) {...}
+### sub begin-dst($year --> DateTime) {...}
 
 Return the time when DST begins.
 
-list
-====
-
-sub end-dst($year --> DateTime) {..}
+### sub end-dst($year --> DateTime) {..}
 
 Return the time when DST ends.
 
-list
-====
-
-sub is-dst(DateTime :$localtime! --> Bool) {...}
+### sub is-dst(DateTime :$localtime! --> Bool) {...}
 
 Return True if the local time is DST, otherwise return False.
 
-list
-====
-
-sub show-us-data(--> Str) {...}
+### sub show-us-data(--> Str) {...}
 
 List the time zone and DST data being used.
 
