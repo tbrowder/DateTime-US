@@ -35,7 +35,7 @@ my $localtime = $tz.to-local :utc($sunrisez);
 =head2 Class methods
 
 =begin item
-B<method to-localtime(DateTime :$utc! --> DateTime)\> {...}
+B<to-localtime>(DateTime :$utc! --> DateTime) {...}
 
 Given a time in UTC, convert to local time and adjust for DST.
 =end item
