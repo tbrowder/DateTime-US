@@ -27,8 +27,8 @@ The main use case that motivated the module is to convert time in UTC to local t
     my $sunrisez = 2022-10-03T05:45:00Z;
     my $localtime = $tz.to-local :utc($sunrisez);
 
-Class DateTime::US methods
---------------------------
+_Class DateTime::US methods_
+----------------------------
 
 ### to-localtime(DateTime :$utc! --> DateTime) {...}
 
@@ -38,8 +38,8 @@ Given a time in UTC, convert to local time and adjust for DST.
 
 Given a local time, convert to UTC with adjustment for DST.
 
-DateTime::US subroutines
-------------------------
+_DateTime::US subroutines_
+--------------------------
 
 ### begin-dst($year --> DateTime) {...}
 
