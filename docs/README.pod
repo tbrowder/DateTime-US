@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-DateTime::US - Provides timezone and DST infomation for US states and territories
+DateTime::US - Provides time zone and Daylight Saving Time (DST) infomation for US states and territories
 
 =head1 SYNOPSIS
 
@@ -12,8 +12,8 @@ use DateTime::US;
 
 =head1 DESCRIPTION
 
-Module B<DateTime::US> provides a class and functions used to help Raku programs needing US timezone and DST information.
-The user creates a DateTime::US object by providing a US timezone abbreviation.  The list of known data may be
+Module B<DateTime::US> provides a class and functions used to help Raku programs needing US time zone and DST information.
+The user creates a DateTime::US object by providing a US time zone abbreviation.  The list of known data may be
 listed without an object:
 
 =begin code
@@ -34,29 +34,29 @@ my $localtime = $tz.to-local :utc($sunrisez);
 
 =head2 Class DateTime::US methods
 
-=head3 method to-localtime(DateTime :$utc! --> DateTime) {...}
+=head3 to-localtime(DateTime :$utc! --> DateTime) {...}
 
 Given a time in UTC, convert to local time and adjust for DST.
 
-=head3 method to-utc(DateTime :$localtime! --> DateTime) {...}
+=head3 to-utc(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 
 =head2 DateTime::US subroutines
 
-=head3 sub begin-dst($year --> DateTime) {...}
+=head3 begin-dst($year --> DateTime) {...}
 
 Return the time when DST begins.
 
-=head3 sub end-dst($year --> DateTime) {..}
+=head3 end-dst($year --> DateTime) {..}
 
 Return the time when DST ends.
 
-=head3 sub is-dst(DateTime :$localtime! --> Bool) {...}
+=head3 is-dst(DateTime :$localtime! --> Bool) {...}
 
 Return True if the local time is DST, otherwise return False.
 
-=head3 sub show-us-data(--> Str) {...}
+=head3 show-us-data(--> Str) {...}
 
 List the time zone and DST data being used.
 

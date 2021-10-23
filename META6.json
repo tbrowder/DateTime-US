@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "Provides timezone and DST infomation for US states and territories",
+  "description": "Provides time zone and Daylight Saving Time (DST) infomation for US states and territories",
   "license": "Artistic-2.0",
   "name": "DateTime::US",
   "perl": "6.d",
