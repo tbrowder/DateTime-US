@@ -6,7 +6,7 @@ use DateTime::US;
 plan 30;
 
 lives-ok {
-    my $out = capture_stdout { DateTime::US.show };
+    my $out = capture_stdout { show-us-data };
 }
 
 dies-ok {
@@ -27,7 +27,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Atlantic', "testing attributes of $z";
-    is $tz.utc, -4;
+    is $tz.utc-offset, -4;
 }
 
 # 2
@@ -39,7 +39,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Eastern', "testing attributes of $z";
-    is $tz.utc, -5;
+    is $tz.utc-offset, -5;
 }
 
 # 3
@@ -51,7 +51,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Central', "testing attributes of $z";
-    is $tz.utc, -6;
+    is $tz.utc-offset, -6;
 }
 
 # 4
@@ -63,7 +63,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Mountain', "testing attributes of $z";
-    is $tz.utc, -7;
+    is $tz.utc-offset, -7;
 }
 
 # 5
@@ -75,7 +75,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Pacific', "testing attributes of $z";
-    is $tz.utc, -8;
+    is $tz.utc-offset, -8;
 }
 
 # 6
@@ -87,7 +87,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Alaska', "testing attributes of $z";
-    is $tz.utc, -9;
+    is $tz.utc-offset, -9;
 }
 
 # 7
@@ -99,7 +99,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Hawaii-Aleutian', "testing attributes of $z";
-    is $tz.utc, -10;
+    is $tz.utc-offset, -10;
 }
 
 # 8
@@ -111,7 +111,7 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Samoa', "testing attributes of $z";
-    is $tz.utc, -11;
+    is $tz.utc-offset, -11;
 }
 
 # 9
@@ -123,7 +123,6 @@ dies-ok {
     }
     my $z = $timezone;
     is $tz.name, 'Chamorro', "testing attributes of $z";
-    is $tz.utc, +10;
+    is $tz.utc-offset, +10;
 }
 
-done-testing;
