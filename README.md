@@ -3,7 +3,7 @@
 NAME
 ====
 
-DateTime::US - Provides time zone and Daylight Saving Time (DST) infomation for US states and territories
+DateTime::US - Provides time zone and Daylight Saving Time (DST) information for US states and territories
 
 SYNOPSIS
 ========
@@ -27,35 +27,35 @@ The main use case that motivated the module is to convert time in UTC to local t
     my $sunrisez = 2022-10-03T05:45:00Z;
     my $localtime = $tz.to-local :utc($sunrisez);
 
-_Class DateTime::US methods_
-----------------------------
-
-### to-localtime(DateTime :$utc! --> DateTime) {...}
-
-Given a time in UTC, convert to local time and adjust for DST.
-
-### to-utc(DateTime :$localtime! --> DateTime) {...}
-
-Given a local time, convert to UTC with adjustment for DST.
-
-_DateTime::US subroutines_
+Class DateTime::US methods
 --------------------------
 
-### begin-dst($year --> DateTime) {...}
+  * to-localtime(DateTime :$utc! --> DateTime) {...}
 
-Return the time when DST begins.
+    Given a time in UTC, convert to local time and adjust for DST.
 
-### end-dst($year --> DateTime) {..}
+  * to-utc(DateTime :$localtime! --> DateTime) {...}
 
-Return the time when DST ends.
+    Given a local time, convert to UTC with adjustment for DST.
 
-### is-dst(DateTime :$localtime! --> Bool) {...}
+DateTime::US subroutines
+------------------------
 
-Return True if the local time is DST, otherwise return False.
+  * begin-dst($year --> DateTime) {...}
 
-### show-us-data(--> Str) {...}
+    Return the time when DST begins.
 
-List the time zone and DST data being used.
+  * end-dst($year --> DateTime) {..}
+
+    Return the time when DST ends.
+
+  * is-dst(DateTime :$localtime! --> Bool) {...}
+
+    Return True if the local time is DST, otherwise return False.
+
+  * show-us-data(--> Str) {...}
+
+    List the time zone and DST data being used.
 
 TODO
 ====
