@@ -2,5 +2,8 @@ Revision history for DateTime-US
 
 {{$NEXT}}
 
+0.0.2  2021-10-23T18:30:57-05:00
+    - Correct typos and formatting
+
 0.0.1  2021-10-23T10:19:11-05:00
     - Initial version
