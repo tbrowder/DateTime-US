@@ -32,10 +32,10 @@ my $sunrisez = 2022-10-03T05:45:00Z;
 my $localtime = $tz.to-local :utc($sunrisez);
 =end code
 
-=head2 Class DateTime::US methods
+=head2 Class methods
 
 =begin item
-to-localtime(DateTime :$utc! --> DateTime) {...}
+B<method to-localtime(DateTime :$utc! --> DateTime)> {...}
 
 Given a time in UTC, convert to local time and adjust for DST.
 =end item
@@ -46,7 +46,7 @@ to-utc(DateTime :$localtime! --> DateTime) {...}
 Given a local time, convert to UTC with adjustment for DST.
 =end item
 
-=head2 DateTime::US subroutines
+=head2 Subroutines
 
 =begin item
 begin-dst($year --> DateTime) {...}
