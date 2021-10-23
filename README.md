@@ -30,7 +30,7 @@ The main use case that motivated the module is to convert time in UTC to local t
 Class methods
 -------------
 
-  * **method to-localtime(DateTime :$utc! --** DateTime)> {...}
+  * **method to-localtime(DateTime :$utc! --** DateTime)\> {...}
 
     Given a time in UTC, convert to local time and adjust for DST.
 
