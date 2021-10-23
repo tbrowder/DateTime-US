@@ -41,7 +41,7 @@ Given a time in UTC, convert to local time and adjust for DST.
 =end item
 
 =begin item
-to-utc(DateTime :$localtime! --> DateTime) {...}
+B<to-utc>(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 =end item
@@ -49,25 +49,25 @@ Given a local time, convert to UTC with adjustment for DST.
 =head2 Subroutines
 
 =begin item
-begin-dst($year --> DateTime) {...}
+B<begin-dst>($year --> DateTime) {...}
 
 Return the time when DST begins.
 =end item
 
 =begin item
-end-dst($year --> DateTime) {..}
+B<end-dst>($year --> DateTime) {..}
 
 Return the time when DST ends.
 =end item
 
 =begin item
-is-dst(DateTime :$localtime! --> Bool) {...}
+B<is-dst>(DateTime :$localtime! --> Bool) {...}
 
 Return True if the local time is DST, otherwise return False.
 =end item
 
 =begin item
-show-us-data(--> Str) {...}
+B<show-us-data>(--> Str) {...}
 
 List the time zone and DST data being used.
 =end item

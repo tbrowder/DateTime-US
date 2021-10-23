@@ -34,26 +34,26 @@ Class methods
 
     Given a time in UTC, convert to local time and adjust for DST.
 
-  * to-utc(DateTime :$localtime! --> DateTime) {...}
+  * **to-utc**(DateTime :$localtime! --> DateTime) {...}
 
     Given a local time, convert to UTC with adjustment for DST.
 
 Subroutines
 -----------
 
-  * begin-dst($year --> DateTime) {...}
+  * **begin-dst**($year --> DateTime) {...}
 
     Return the time when DST begins.
 
-  * end-dst($year --> DateTime) {..}
+  * **end-dst**($year --> DateTime) {..}
 
     Return the time when DST ends.
 
-  * is-dst(DateTime :$localtime! --> Bool) {...}
+  * **is-dst**(DateTime :$localtime! --> Bool) {...}
 
     Return True if the local time is DST, otherwise return False.
 
-  * show-us-data(--> Str) {...}
+  * **show-us-data**(--> Str) {...}
 
     List the time zone and DST data being used.
 
