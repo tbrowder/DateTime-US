@@ -1,4 +1,4 @@
-unit class DateTime::US:ver<0.0.2>:auth<cpan:TBROWDER>;
+unit class DateTime::US:ver<0.0.3>:auth<cpan:TBROWDER>;
 
 has $.timezone is required;
 has $.name;
