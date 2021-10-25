@@ -1,6 +1,9 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Added information regarding this module versus
+      DateTime::Timezones
+    - Corrected pod format errors
 
 0.0.2  2021-10-23T18:30:57-05:00
     - Correct typos and formatting

@@ -72,11 +72,23 @@ B<show-us-data>(--> Str) {...}
 List the time zone and DST data being used.
 =end item
 
-=head1 TODO
+=head1 SEE ALSO
+
+=begin item
+Module B<DateTime::Timezones>
+
+In contrast to Matthew Stuckwisch's module, this module does not use any
+of the IANA timezone database and relies only on the power of the Raku
+DateTime type, the short list of time zone UTC offsets
+for standard US time zones, and the standard dates and time of Daylight Saving Time
+begin/end enshrined in US Public Law.
+=end item
+
+=head1 Todo
 
 Provide handling for the exceptions to use of DST where indicated.
 
-=head1 NOTE
+=head1 Note
 
 The author is happy to create or collaborate on a similar module for other regions.
 If interested, simply file an issue or discuss it on IRC #raku (author's handle is 'tbrowder').
