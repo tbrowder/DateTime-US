@@ -3,7 +3,7 @@
 NAME
 ====
 
-DateTime::US - Provides time zone and Daylight Saving Time (DST) information for US states and territories
+**DateTime::US** - Provides time zone and Daylight Saving Time (DST) information for US states and territories
 
 SYNOPSIS
 ========

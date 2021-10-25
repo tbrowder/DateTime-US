@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-DateTime::US - Provides time zone and Daylight Saving Time (DST) information for US states and territories
+B<DateTime::US> - Provides time zone and Daylight Saving Time (DST) information for US states and territories
 
 =head1 SYNOPSIS
 
