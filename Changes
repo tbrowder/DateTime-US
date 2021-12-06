@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+
+0.0.4  2021-12-06T09:18:56-06:00
     - Publish to the Raku module Zef repository
 
 0.0.3  2021-10-25T17:31:50-05:00
