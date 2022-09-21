@@ -61,6 +61,8 @@ constant %dst-exceptions = [
 
 submethod TWEAK {
     # only certain names are recognized
+    # also translate 'Xdt' to 'Xst'
+    $!timezone ~~ s/:i dt$/st/;
     unless %tzones{$!timezone.lc}:exists {
         die qq:to/HERE/;
         FATAL: US timezone {$!timezone.uc} is not recognized.

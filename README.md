@@ -15,7 +15,7 @@ use DateTime::US;
 DESCRIPTION
 ===========
 
-Module **DateTime::US** provides a class and functions used to help Raku programs needing US time zone and DST information. The user creates a DateTime::US object by providing a US time zone abbreviation. The list of known data may be listed without an object:
+Module **DateTime::US** provides a class and functions used to help Raku programs needing US time zone (TZ) and DST information. The user creates a `DateTime::US` object by providing a US time zone abbreviation (note the TZ input abbreviation may be in either format for standard or saving time, e.g., 'CST' or 'CDT'). The list of known data may be listed without an object:
 
     $ raku
     > use DateTime::US;
@@ -77,12 +77,12 @@ The author is happy to create or collaborate on a similar module for other regio
 AUTHOR
 ======
 
-Tom Browder <tbrowder@cpan.org>
+Tom Browder <tbrowder@acm.org>
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright © 2021 Tom Browder
+Copyright © 2021-2022 Tom Browder
 
 This library is free software; you may redistribute or modify it under the Artistic License 2.0.
 

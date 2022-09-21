@@ -12,8 +12,9 @@ use DateTime::US;
 
 =head1 DESCRIPTION
 
-Module B<DateTime::US> provides a class and functions used to help Raku programs needing US time zone and DST information.
-The user creates a DateTime::US object by providing a US time zone abbreviation.  The list of known data may be
+Module B<DateTime::US> provides a class and functions used to help Raku programs needing US time zone (TZ) and DST information.
+The user creates a C<DateTime::US> object by providing a US time zone abbreviation (note the
+TZ input abbreviation may be in either format for standard or saving time, e.g., 'CST' or 'CDT').  The list of known data may be
 listed without an object:
 
 =begin code
@@ -95,11 +96,11 @@ If interested, simply file an issue or discuss it on IRC #raku (author's handle 
 
 =head1 AUTHOR
 
-Tom Browder <tbrowder@cpan.org>
+Tom Browder <tbrowder@acm.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2021 Tom Browder
+Copyright © 2021-2022 Tom Browder
 
 This library is free software; you may redistribute or modify it under the Artistic License 2.0.
 

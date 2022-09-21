@@ -3,7 +3,7 @@ use IO::Capture::Simple;
 
 use DateTime::US;
 
-plan 30;
+plan 33;
 
 lives-ok {
     my $out = capture_stdout { show-us-data };
@@ -20,14 +20,23 @@ dies-ok {
 # All US timezone data are from https://timetemperature.com
 # 1
 {
-    my $timezone = 'ast';
+    my $timezone  = 'ast';
+    my $timezone2 = 'adt';
     my $tz;
+    my $tz2;
     lives-ok {
-        $tz = DateTime::US.new: :$timezone;
+        $tz  = DateTime::US.new: :$timezone;
     }
-    my $z = $timezone;
+    lives-ok {
+        $tz2 = DateTime::US.new: :timezone($timezone2);
+    }
+    my $z  = $timezone;
+    my $z2 = $timezone2;
     is $tz.name, 'Atlantic', "testing attributes of $z";
     is $tz.utc-offset, -4;
+
+    is $tz2.name, 'Atlantic', "testing attributes of $z2";
+    is $tz2.utc-offset, -4;
 }
 
 # 2
