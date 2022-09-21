@@ -3,7 +3,7 @@
 NAME
 ====
 
-**DateTime::US** - Provides time zone and Daylight Saving Time (DST) information for US states and territories
+**DateTime::US** - Provides time zone (TZ) and daylight saving time (DST) information for US states and territories
 
 SYNOPSIS
 ========
@@ -15,7 +15,7 @@ use DateTime::US;
 DESCRIPTION
 ===========
 
-Module **DateTime::US** provides a class and functions used to help Raku programs needing US time zone (TZ) and DST information. The user creates a `DateTime::US` object by providing a US time zone abbreviation (note the TZ input abbreviation may be in either format for standard or saving time, e.g., 'CST' or 'CDT'). The list of known data may be listed without an object:
+Module **DateTime::US** provides a class and functions used to help Raku programs needing US time zone and DST information. The user creates a `DateTime::US` object by providing a US time zone abbreviation (note the TZ input abbreviation may be in either format for standard or daylight saving time, e.g., 'CST' or 'CDT'). The list of known data may be listed without an object:
 
     $ raku
     > use DateTime::US;
