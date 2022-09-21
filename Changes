@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+
+0.1.0  2022-09-21T13:43:46-05:00
     - Allow user to enter D instead of S, e.g., CDT or CST
       (the effect is the same internally)
     - Add tests for use of D instead of S
