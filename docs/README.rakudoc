@@ -2,7 +2,8 @@
 
 =head1 NAME
 
-B<DateTime::US> - Provides time zone (TZ) and daylight saving time (DST) information for US states and territories
+B<DateTime::US> - Provides time zone (TZ) and daylight saving time (DST) 
+                  information for US states and territories
 
 =head1 SYNOPSIS
 
@@ -12,9 +13,11 @@ use DateTime::US;
 
 =head1 DESCRIPTION
 
-Module B<DateTime::US> provides a class and functions used to help Raku programs needing US time zone and DST information.
-The user creates a C<DateTime::US> object by providing a US time zone abbreviation (note the
-TZ input abbreviation may be in either format for standard or daylight saving time, e.g., 'CST' or 'CDT').  The list of known data may be
+Module B<DateTime::US> provides a class and functions used to help Raku 
+programs needing US time zone and DST information.  The user creates a 
+C<DateTime::US> object by providing a US time zone abbreviation (note the
+TZ input abbreviation may be in either format for standard or daylight 
+saving time, e.g., 'CST' or 'CDT').  The list of known data may be
 listed without an object:
 
 =begin code
@@ -29,8 +32,8 @@ given in UTC and will normally be shown on a calendar in local time:
 
 =begin code
 my $tz = DateTime.new: :timezone('CST');
-my $sunrisez = 2022-10-03T05:45:00Z;
-my $localtime = $tz.to-local :utc($sunrisez);
+my $sunrisez = DateTime.new: "2022-10-03T05:45:00Z";
+my $localtime = $tz.to-localtime :utc($sunrisez);
 =end code
 
 =head2 Class methods

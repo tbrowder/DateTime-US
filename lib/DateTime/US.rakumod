@@ -1,63 +1,18 @@
 unit class DateTime::US;
 
+use Timezones::US;
+
 has $.timezone is required;
 has $.name;
 has $.utc-offset;
 has $.dst-exceptions;
 
-# All US timezone data are from https://timetemperature.com
-constant @tz is export = <ast est cst
-                          mst pst akst
-                          hast wst chst>;
-
-# UTC offsets are in hours (3600 seconds)
-constant %tzones = [
-    ast  => {
-              utc-offset  => -4,
-              name => "Atlantic",
-            },
-    est  => {
-              utc-offset  => -5,
-              name => "Eastern",
-            },
-    cst  => {
-              utc-offset  => -6,
-              name => "Central",
-            },
-    mst  => {
-              utc-offset  => -7,
-              name => "Mountain",
-            },
-    pst  => {
-              utc-offset  => -8,
-              name => "Pacific",
-            },
-    akst => {
-              utc-offset  => -9,
-              name => "Alaska",
-            },
-    hast => {
-              utc-offset  => -10,
-              name => "Hawaii-Aleutian",
-            },
-    wst  => {
-              utc-offset  => -11,
-              name => "Samoa",
-            },
-    chst => {
-              utc-offset  => +10,
-              name => "Chamorro",
-            },
-];
-
-constant %dst-exceptions = [
-    mst  => {
-              az => {
-                      name => "Arizona",
-                      does-dst => 0,
-              }
-            },
-];
+#| Formatter for local time
+our $lt-format = sub ($self) is export {
+    sprintf "%04d-%02d-%02dT%02d:%02d:%02d",
+        .year, .month, .day, .hour, .minute, .second
+        given $self
+}
 
 submethod TWEAK {
     # only certain names are recognized
@@ -73,8 +28,6 @@ submethod TWEAK {
     $!name       = %tzones{$!timezone.lc}<name>;
     $!utc-offset = %tzones{$!timezone.lc}<utc-offset>;
 }
-
-constant SEC-PER-HOUR = 3600;
 
 multi method to-localtime(DateTime :$utc! --> DateTime) {
     # localtime = utc + utc-offset
@@ -94,7 +47,7 @@ multi method to-utc(DateTime :$localtime! --> DateTime) {
     if is-dst :$localtime {
         $utc-offset += 1; # make time 1 hour later
         $ut = $localtime - Duration.new($utc-offset * SEC-PER-HOUR);
-    }  
+    }
     $ut
 }
 
@@ -106,7 +59,7 @@ sub is-dst(DateTime :$localtime --> Bool) is export {
     my $start-time = begin-dst $year;
     my $end-time   = end-dst $year;
 
-    # now we can check if in or out 
+    # now we can check if in or out
     if $t < $start-time {
         return False;
     }
