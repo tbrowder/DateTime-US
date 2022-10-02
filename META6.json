@@ -19,8 +19,10 @@
   ],
   "source-url": "https://github.com/tbrowder/DateTime-US.git",
   "tags": [
+    "time date us zones dst"
   ],
   "test-depends": [
+    "Test",
     "IO::Capture::Simple"
   ],
   "version": "0.1.0"
