@@ -3,7 +3,7 @@
 NAME
 ====
 
-**DateTime::US** - Provides time zone (TZ) and daylight saving time (DST) information for US states and territories
+**DateTime::US** - Provides time zone (TZ) and Daylight Saving Time (DST) information for US states and territories
 
 SYNOPSIS
 ========
@@ -15,7 +15,7 @@ use DateTime::US;
 DESCRIPTION
 ===========
 
-Module **DateTime::US** provides a class and functions used to help Raku programs needing US time zone and DST information. The user creates a `DateTime::US` object by providing a US time zone abbreviation (note the TZ input abbreviation may be in either format for standard or daylight saving time, e.g., 'CST' or 'CDT'). The list of known data may be listed without an object:
+Module **DateTime::US** provides a class with methods used to help Raku programs needing US time zone and DST information. The user creates a `DateTime::US` object by providing a US time zone abbreviation (note the TZ input abbreviation may be in either format for standard or daylight saving time, e.g., 'CST' or 'CDT'). The list of known data may be listed without an object:
 
     $ raku
     > use DateTime::US;
@@ -38,25 +38,6 @@ Class methods
 
     Given a local time, convert to UTC with adjustment for DST.
 
-Subroutines
------------
-
-  * **begin-dst**($year --> DateTime) {...}
-
-    Return the time when DST begins.
-
-  * **end-dst**($year --> DateTime) {..}
-
-    Return the time when DST ends.
-
-  * **is-dst**(DateTime :$localtime! --> Bool) {...}
-
-    Return True if the local time is DST, otherwise return False.
-
-  * **show-us-data**(--> Str) {...}
-
-    List the time zone and DST data being used.
-
 SEE ALSO
 ========
 
@@ -67,7 +48,7 @@ SEE ALSO
 Todo
 ====
 
-Provide handling for the exceptions to use of DST where indicated.
+Provide handling for the exceptions to the use of DST where indicated.
 
 Note
 ====
@@ -82,7 +63,7 @@ Tom Browder <tbrowder@acm.org>
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright © 2021-2022 Tom Browder
+© 2021-2022 Tom Browder
 
 This library is free software; you may redistribute or modify it under the Artistic License 2.0.
 

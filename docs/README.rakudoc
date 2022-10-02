@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-B<DateTime::US> - Provides time zone (TZ) and daylight saving time (DST) 
+B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST) 
                   information for US states and territories
 
 =head1 SYNOPSIS
@@ -13,7 +13,7 @@ use DateTime::US;
 
 =head1 DESCRIPTION
 
-Module B<DateTime::US> provides a class and functions used to help Raku 
+Module B<DateTime::US> provides a class with methods used to help Raku 
 programs needing US time zone and DST information.  The user creates a 
 C<DateTime::US> object by providing a US time zone abbreviation (note the
 TZ input abbreviation may be in either format for standard or daylight 
@@ -49,33 +49,6 @@ B<to-utc>(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 =end item
-
-=head2 Subroutines
-
-=begin item
-B<begin-dst>($year --> DateTime) {...}
-
-Return the time when DST begins.
-=end item
-
-=begin item
-B<end-dst>($year --> DateTime) {..}
-
-Return the time when DST ends.
-=end item
-
-=begin item
-B<is-dst>(DateTime :$localtime! --> Bool) {...}
-
-Return True if the local time is DST, otherwise return False.
-=end item
-
-=begin item
-B<show-us-data>(--> Str) {...}
-
-List the time zone and DST data being used.
-=end item
-
 =head1 SEE ALSO
 
 =begin item
@@ -90,7 +63,7 @@ begin/end enshrined in US Public Law.
 
 =head1 Todo
 
-Provide handling for the exceptions to use of DST where indicated.
+Provide handling for the exceptions to the use of DST where indicated.
 
 =head1 Note
 
@@ -103,7 +76,7 @@ Tom Browder <tbrowder@acm.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright © 2021-2022 Tom Browder
+© 2021-2022 Tom Browder
 
 This library is free software; you may redistribute or modify it under the Artistic License 2.0.
 

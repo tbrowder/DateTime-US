@@ -2,6 +2,7 @@ use Test;
 use IO::Capture::Simple;
 
 use DateTime::US;
+use Timezones::US;
 
 plan 33;
 

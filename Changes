@@ -1,8 +1,10 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
-    - Move US timezone data to new module Timezones::US
+    - Move US timezone data and subroutines to new 
+      module Timezones::US where they are automatically exported
     - Correct example code mistakes in the README
+    - Add more details to the README
 
 0.1.0  2022-09-21T13:43:46-05:00
     - Allow user to enter D instead of S, e.g., CDT or CST

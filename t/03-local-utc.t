@@ -1,6 +1,7 @@
 use Test;
 
 use DateTime::US;
+use Timezones::US;
 
 plan 13;
 
