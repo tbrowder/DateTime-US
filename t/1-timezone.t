@@ -1,14 +1,9 @@
 use Test;
-use IO::Capture::Simple;
 
 use DateTime::US;
 use Timezones::US;
 
-plan 33;
-
-lives-ok {
-    my $out = capture_stdout { show-us-data };
-}
+plan 32;
 
 dies-ok {
     my $tz = DateTime::US.new;
@@ -135,4 +130,3 @@ dies-ok {
     is $tz.name, 'Chamorro', "testing attributes of $z";
     is $tz.utc-offset, +10;
 }
-

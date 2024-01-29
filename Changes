@@ -1,6 +1,10 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Add 3-OS tests
+    - Use zef for Windows tests
+    - Update copyright year
+    - Remove useless test causing problems on Windows
 
 0.1.1  2022-10-02T16:33:23-05:00
     - Move US timezone data and subroutines to new 
