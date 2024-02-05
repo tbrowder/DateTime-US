@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Add new routine to provide DST begin/end DateTimes for a year
+      and US timezone
 
 0.1.2  2024-01-28T20:50:39-06:00
     - Add 3-OS tests
