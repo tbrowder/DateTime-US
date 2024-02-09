@@ -6,6 +6,7 @@
   "build-depends": [
   ],
   "depends": [
+    "Date::Utils",
     "Timezones::US"
   ],
   "description": "Provides time zone and Daylight Saving Time (DST) infomation for US states and territories",
@@ -22,7 +23,6 @@
     "time date us zones dst"
   ],
   "test-depends": [
-    "Test",
     "IO::Capture::Simple"
   ],
   "version": "0.1.2"

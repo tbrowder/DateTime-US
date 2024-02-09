@@ -1,6 +1,7 @@
 unit class DateTime::US;
 
 use Timezones::US;
+use Date::Utils;
 
 has $.timezone is required;
 has $.name;
@@ -74,7 +75,6 @@ Update the DST (daylight savings time) module with the desired year
 multi method dst-begin(:$year --> DateTime) {
     # nth(2) dow(7) in month 3 at 0200 local
     my $date = Date.new: :$year, :month(3);
-
 }
 
 multi method dst-end(:$year --> DateTime) {

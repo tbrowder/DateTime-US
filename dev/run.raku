@@ -4,6 +4,11 @@ use lib <../lib>;
 use DateTime::US;
 
 my $tz = DateTime::US.new: :timezone('cst');
+dd $tz;
+
+say $tz.begin-dst;
+
+=finish
 
 =begin comment
 my $lt-format = sub ($self) { 
