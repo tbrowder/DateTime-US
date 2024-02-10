@@ -4,9 +4,10 @@ use lib <../lib>;
 use DateTime::US;
 
 my $tz = DateTime::US.new: :timezone('cst');
-dd $tz;
 
-say $tz.begin-dst;
+my $year = 2024;
+say $tz.dst-begin: :$year;
+say $tz.dst-end: :$year;
 
 =finish
 

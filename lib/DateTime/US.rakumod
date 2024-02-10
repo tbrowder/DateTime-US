@@ -1,5 +1,6 @@
 unit class DateTime::US;
 
+use LocalTime;
 use Timezones::US;
 use Date::Utils;
 
@@ -77,7 +78,8 @@ multi method dst-begin(:$year! --> DateTime) {
     my $nth   = 2;
     my $dow   = 7;
     my $month = 3;
-    nth-dow-in-month :$year, :$month, :$nth; #:nDate.new: :$year, :month(3);
+    my $date = nth-dow-in-month :$year, :$month, :$nth, :$dow;
+    DateTime.new: :$year, :$month, :day($date.day), :hour(2);
 }
 
 multi method dst-end(:$year --> DateTime) {
@@ -85,6 +87,7 @@ multi method dst-end(:$year --> DateTime) {
     my $nth   = 1;
     my $dow   = 7;
     my $month = 11;
-    nth-dow-in-month :$year, :$month, :$nth; #:nDate.new: :$year, :month(3);
+    my $date = nth-dow-in-month :$year, :$month, :$nth, :$dow;
+    DateTime.new: :$year, :$month, :day($date.day), :hour(2);
 }
 
