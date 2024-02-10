@@ -75,7 +75,6 @@ Update the DST (daylight savings time) module with the desired year
 method begin-dst(:$year! --> Date) {
     self.dst-begin :$year
 }
-
 method dst-begin(:$year! --> Date) {
     # nth(2) dow(7) in month 3 at 0200 local
     my $nth   = 2;
@@ -85,9 +84,8 @@ method dst-begin(:$year! --> Date) {
 }
 
 method end-dst(:$year! --> Date) {
-    self.end-dst :$year
+    self.dst-end :$year
 }
-
 method dst-end(:$year --> Date) {
     # nth(1) dow(7) in month 11 at 0200 local
     my $nth   = 1;

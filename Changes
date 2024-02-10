@@ -1,9 +1,11 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
-    - Add new method to provide DST begin/end DateTimes for a year
-      and US timezone
-      
+    - Add new methods to provide DST begin/end DateTimes for a year
+      + begin-dst :$year => date DST begins at 0200 local
+      + dst-begin (alias)
+      + end-dst   :$year => date DST ends   at 0200 local
+      + dst-end   (alias)
 
 0.1.2  2024-01-28T20:50:39-06:00
     - Add 3-OS tests
