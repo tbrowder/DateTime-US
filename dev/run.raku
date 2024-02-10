@@ -7,7 +7,9 @@ my $tz = DateTime::US.new: :timezone('cst');
 
 my $year = 2024;
 say $tz.dst-begin: :$year;
+say $tz.begin-dst: :$year;
 say $tz.dst-end: :$year;
+say $tz.end-dst: :$year;
 
 =finish
 

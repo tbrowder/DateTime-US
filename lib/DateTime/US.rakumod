@@ -1,6 +1,5 @@
 unit class DateTime::US;
 
-use LocalTime;
 use Timezones::US;
 use Date::Utils;
 
@@ -73,29 +72,27 @@ Update the DST (daylight savings time) module with the desired year
 
 =end comment
 
-#multi method dst-begin(:$year! --> DateTime) {
-#multi method dst-begin(:$year! --> LocalTime) {
-multi method dst-begin(:$year!) {
+method begin-dst(:$year! --> Date) {
+    self.dst-begin :$year
+}
+
+method dst-begin(:$year! --> Date) {
     # nth(2) dow(7) in month 3 at 0200 local
     my $nth   = 2;
     my $dow   = 7;
     my $month = 3;
-    my $date = nth-dow-in-month :$year, :$month, :$nth, :$dow;
-    #DateTime.new: :$year, :$month, :day($date.day), :hour(2);
-    my $t = LocalTime.new: :$year, :$month, :day($date.day), :hour(2);
-    $t
+    nth-dow-in-month :$year, :$nth, :$dow, :$month;
 }
 
-#multi method dst-end(:$year --> DateTime) {
-#multi method dst-end(:$year --> LocalTime) {
-multi method dst-end(:$year) {
+method end-dst(:$year! --> Date) {
+    self.end-dst :$year
+}
+
+method dst-end(:$year --> Date) {
     # nth(1) dow(7) in month 11 at 0200 local
     my $nth   = 1;
     my $dow   = 7;
     my $month = 11;
-    my $date = nth-dow-in-month :$year, :$month, :$nth, :$dow;
-    #DateTime.new: :$year, :$month, :day($date.day), :hour(2);
-    my $t = LocalTime.new: :$year, :$month, :day($date.day), :hour(2);
-    $t
+    nth-dow-in-month :$year, :$nth, :$dow, :$month;
 }
 
