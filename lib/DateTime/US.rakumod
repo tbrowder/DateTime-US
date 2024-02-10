@@ -1,7 +1,7 @@
 unit class DateTime::US;
 
 use Timezones::US;
-use Date::Utils;
+#use Date::Utils;
 
 has $.timezone is required;
 has $.name;
@@ -72,10 +72,9 @@ Update the DST (daylight savings time) module with the desired year
 
 =end comment
 
-method begin-dst(:$year! --> Date) {
-    self.dst-begin :$year
-}
-method dst-begin(:$year! --> Date) {
+=finish
+our &begin-dst is export = &dst-begin;
+sub dst-begin(:$year! --> Date) is export {
     # nth(2) dow(7) in month 3 at 0200 local
     my $nth   = 2;
     my $dow   = 7;
@@ -83,14 +82,16 @@ method dst-begin(:$year! --> Date) {
     nth-dow-in-month :$year, :$nth, :$dow, :$month;
 }
 
-method end-dst(:$year! --> Date) {
-    self.dst-end :$year
-}
-method dst-end(:$year --> Date) {
+our &end-dst is export = &dst-end;
+sub dst-end(:$year --> Date) is export {
     # nth(1) dow(7) in month 11 at 0200 local
     my $nth   = 1;
     my $dow   = 7;
     my $month = 11;
     nth-dow-in-month :$year, :$nth, :$dow, :$month;
+}
+
+sub get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {
+    
 }
 

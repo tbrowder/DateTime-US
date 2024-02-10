@@ -1,15 +1,22 @@
 #!/usr/bin/env raku
 
 use lib <../lib>;
-use DateTime::US;
+use DateTime::Subs;
 
-my $tz = DateTime::US.new: :timezone('cst');
+#my $tz = DateTime::US.new: :timezone('cst');
 
 my $year = 2024;
-say $tz.dst-begin: :$year;
-say $tz.begin-dst: :$year;
-say $tz.dst-end: :$year;
-say $tz.end-dst: :$year;
+my $d;
+
+$d = dst-begin :$year;
+say "In $year, DST begins at 0200 on: ", $d;
+$d = begin-dst  :$year;
+say "In $year, DST begins at 0200 on: ", $d;
+
+$d = dst-end  :$year;
+say "In $year, DST ends at 0200 on: ", $d;
+$d = end-dst  :$year;
+say "In $year, DST ends at 0200 on: ", $d;
 
 =finish
 
