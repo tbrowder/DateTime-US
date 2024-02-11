@@ -52,7 +52,7 @@ The `:$year` argument defaults to the current year if it is not provided.
 
   * end-dst(:$year --> Date) is export(:end-dst) {...}
 
-  * dst-end(:$year --> Date) is export(:dst-end) {...} # alias for begin-dst
+  * dst-end(:$year --> Date) is export(:dst-end) {...} # alias for end-dst
 
 The final routine is for use by module `Date::Event`. The `:$set-id` argument is used to provide a globally unique ID (GUID) to allow multiple `Date::Event` objects for a `Date` in a `Hash` keyed by `Date`s.
 
