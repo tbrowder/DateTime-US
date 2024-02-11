@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+
+0.1.3  2024-02-11T11:38:40-06:00
     - Remove all reduntant DST test data into a separate file
     - Require module UUID::V4 for generating GUIDs
     - Add new module DateTime::Subs for new subroutines	
