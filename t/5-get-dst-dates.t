@@ -1,74 +1,43 @@
 use Test;
 
 use DateTime::Subs :ALL;
+use UUID::V4;
 
-# test dst start and stop dates against known fed data
-# but use "perpetual" data
+my $set-id = uuid-v4;
+is is-uuid-v4($set-id), True, "good UUID::V4";
 
-my %dst;
+my %DST; # test data defined in the BEGIN block
 
-=begin comment
+for 2016..2030 -> $year {
+    my %dst = get-dst-dates :$year, :$set-id;
 
-Update the DST (daylight savings time) module with the desired year
-('DST.pm').
+    for %dst.keys -> $date {
+        for %dst{$date}.kv -> $key, $v {
+            my $info = $key.split('|').join(" ").words.tail;
+            my $d = Date.new: $v;
 
-  See: https://en.wikipedia.org/wiki/Uniform_Time_Act
-            effective as of 2007:
-
-           begins: 0200 local, second Sunday in March
-           ends:   0200 local, first Sunday in November
-
-=end comment
-
-my $ntests = %dst.elems * 8;
-plan $ntests;
-
-for %dst.keys -> $year {
-    # get the known data
-    my $begin-month = %dst{$year}<begin><month>;
-    my $begin-day   = %dst{$year}<begin><day>;
-    my $end-month   = %dst{$year}<end><month>;
-    my $end-day     = %dst{$year}<end><day>;
-
-    my $dtb  = begin-dst :$year;
-    my $dtb2 = dst-begin :$year;
-
-    my $dte  = end-dst   :$year;
-    my $dte2 = dst-end   :$year;
-
-    # 4 tests
-    is $dtb.month, $begin-month;
-    is $dtb.day,   $begin-day;
-    is $dte.month, $end-month;
-    is $dte.day,   $end-day;
-
-    # and 4 more = 8
-    is $dtb2.month, $begin-month;
-    is $dtb2.day,   $begin-day;
-    is $dte2.month, $end-month;
-    is $dte2.day,   $end-day;
-}
-
-=begin comment
-
-Note: This is hand generated for now.
-
-Update the DST (daylight savings time) module with the desired year
-('DST.pm').
-
-  See: https://en.wikipedia.org/wiki/Uniform_Time_Act
-            effective as of 2007:
-
-           begins: 0200 local, second Sunday in March
-           ends:   0200 local, first Sunday in November
-
-=end comment
+            # get the test data
+            my $begin-month = %DST{$year}<begin><month>;
+            my $begin-day   = %DST{$year}<begin><day>;
+            my $end-month   = %DST{$year}<end><month>;
+            my $end-day     = %DST{$year}<end><day>;
+        
+            my $bdate = Date.new: :$year, :month($begin-month), :day($begin-day);
+            my $edate = Date.new: :$year, :month($end-month), :day($end-day);
+       
+            if $info ~~ /:i begin / {
+ 	        is $bdate, $d, "is $bdate, $d";
+            }
+            else {
+ 	        is $edate, $d, "is $edate, $d";
+            }
+        }
+    }
+} # end of year 2016..2030
 
 BEGIN {
-
-%dst = [
-
-     '2016' => {
+%DST = %(
+    '2016' => {
                 begin => {
                           day   => '13',
                           month => 3, # 'mar',
@@ -108,8 +77,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2020' => {
                 begin => {
                           day   => '8',
@@ -120,8 +87,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2021' => {
                 begin => {
                           day   => '14',
@@ -132,8 +97,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2022' => {
                 begin => {
                           day   => '13',
@@ -144,8 +107,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2023' => {
                 begin => {
                           day   => '12',
@@ -156,8 +117,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2024' => {
                 begin => {
                           day   => '10',
@@ -168,8 +127,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2025' => {
                 begin => {
                           day   => '9',
@@ -180,8 +137,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2026' => {
                 begin => {
                           day   => '8',
@@ -192,8 +147,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2027' => {
                 begin => {
                           day   => '14',
@@ -204,8 +157,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2028' => {
                 begin => {
                           day   => '12',
@@ -216,8 +167,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2029' => {
                 begin => {
                           day   => '11',
@@ -228,8 +177,6 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-
-
      '2030' => {
                 begin => {
                           day   => '10',
@@ -240,6 +187,5 @@ BEGIN {
                           month => 11, # 'nov',
                          },
                 },
-]; # end of %dst
-
+); # end of %DST
 }
