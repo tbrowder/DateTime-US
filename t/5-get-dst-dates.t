@@ -35,6 +35,8 @@ for 2016..2030 -> $year {
     }
 } # end of year 2016..2030
 
+done-testing;
+
 BEGIN {
 %DST = %(
     '2016' => {

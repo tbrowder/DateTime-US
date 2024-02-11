@@ -53,7 +53,7 @@ Given a local time, convert to UTC with adjustment for DST.
 =head1 SEE ALSO
 
 =begin item
-Module B<DateTime::Timezones:auth<zef:guifa>
+Module B<DateTime::Timezones:auth<zef:guifa>>
 
 In contrast to Matthew Stuckwisch's module, this module does not use any
 of the IANA timezone database and relies only on the power of the Raku
