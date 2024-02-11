@@ -5,7 +5,9 @@ use Date::Utils;
 our &begin-dst is export(:begin-dst) = &dst-begin;
 our &end-dst is export(:end-dst) = &dst-end;
 
-sub dst-begin(:$year --> Date) is export(:dst-begin) {
+sub dst-begin(:$year is copy --> Date) is export(:dst-begin) {
+    $year = Date.new(now).year if not $year.defined;
+
     # nth(2) dow(7) in month 3 at 0200 local
     my $nth   = 2;
     my $dow   = 7;
@@ -14,7 +16,9 @@ sub dst-begin(:$year --> Date) is export(:dst-begin) {
     $d
 }
 
-sub dst-end(:$year --> Date) is export(:dst-end) {
+sub dst-end(:$year is copy --> Date) is export(:dst-end) {
+    $year = Date.new(now).year if not $year.defined;
+
     # nth(1) dow(7) in month 11 at 0200 local
     my $nth   = 1;
     my $dow   = 7;

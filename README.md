@@ -25,8 +25,8 @@ Module **DateTime::US** provides a class with methods used to help Raku programs
 The main use case that motivated the module is to convert time in UTC to local time for creating calendars and almanacs. For example, local Sunrise is given in UTC and will normally be shown on a calendar in local time:
 
     my $tz = DateTime.new: :timezone('CST');
-    my $sunrisez = DateTime.new: "2022-10-03T05:45:00Z";
-    my $localtime = $tz.to-localtime :utc($sunrisez);
+    my $sunriseZ = DateTime.new: "2022-10-03T05:45:00Z";
+    my $localtime = $tz.to-localtime :utc($sunriseZ);
 
 Class methods
 -------------
@@ -38,6 +38,25 @@ Class methods
   * **to-utc**(DateTime :$localtime! --> DateTime) {...}
 
     Given a local time, convert to UTC with adjustment for DST.
+
+Subroutines
+-----------
+
+It is useful to have a "perpetual" calculation of the begin/end dates for DST for all years covered by the current governing federal law for the US thanks to the Date::Utils module. The following routines do that, and they require an `export` tag for use to avoid possible conflict from other modules.
+
+The `:$year` argument defaults to the current year if it is not provided.
+
+  * begin-dst(:$year --> Date) is export(:begin-dst) {...}
+
+  * dst-begin(:$year --> Date) is export(:dst-begin) {...}
+
+  * end-dst(:$year --> Date) is export(:end-dst) {...}
+
+  * dst-end(:$year --> Date) is export(:dst-end) {...}
+
+The final routine is for use by module Date::Event. The `:$set-id` argument is used to provide a globally unique ID (GUID) to allow multiple Date::Event objects for a single `Date` object.
+
+  * get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
 
 SEE ALSO
 ========

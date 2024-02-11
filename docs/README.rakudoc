@@ -33,8 +33,8 @@ given in UTC and will normally be shown on a calendar in local time:
 
 =begin code
 my $tz = DateTime.new: :timezone('CST');
-my $sunrisez = DateTime.new: "2022-10-03T05:45:00Z";
-my $localtime = $tz.to-localtime :utc($sunrisez);
+my $sunriseZ = DateTime.new: "2022-10-03T05:45:00Z";
+my $localtime = $tz.to-localtime :utc($sunriseZ);
 =end code
 
 =head2 Class methods
@@ -50,6 +50,29 @@ B<to-utc>(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 =end item
+
+=head2 Subroutines
+
+It is useful to have a "perpetual" calculation
+of the begin/end dates for DST for all years covered by the
+current governing federal law for the US thanks to the
+Date::Utils module. The following routines do that, and they
+require an C<export> tag for use to avoid possible conflict from
+other modules.
+
+The C<:$year> argument defaults to the current year if it is not provided.
+
+=item begin-dst(:$year --> Date) is export(:begin-dst) {...}
+=item dst-begin(:$year --> Date) is export(:dst-begin) {...}
+=item end-dst(:$year --> Date) is export(:end-dst) {...}
+=item dst-end(:$year --> Date) is export(:dst-end) {...}
+
+The final routine is for use by module Date::Event.
+The C<:$set-id> argument is used to provide a globally unique ID (GUID)
+to allow multiple Date::Event objects for a single C<Date> object.
+
+=item get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
+
 =head1 SEE ALSO
 
 =begin item

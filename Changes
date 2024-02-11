@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Remove all reduntant DST test data into a separate file
+    - Require module UUID::V4 for generating GUIDs
     - Add new module DateTime::Subs for new subroutines	
     - Add new subs to provide DST begin/end DateTimes for a year
       (all require explicit export tags)
