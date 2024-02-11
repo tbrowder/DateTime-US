@@ -63,7 +63,7 @@ SEE ALSO
 
   * Module **DateTime::Timezones:auth<zef:guifa>**
 
-    In contrast to Matthew Stuckwisch's module, this module does not use any of the IANA timezone database and relies only on the power of the Raku DateTime type, the short list of time zone UTC offsets for standard US time zones, and the standard dates and time of Daylight Saving Time begin/end enshrined in US Public Law.
+    In contrast to Matthew Stuckwisch's module, `DateTime::US` does not use any of the IANA timezone database and relies only on the power of the Raku DateTime type, the short list of time zone UTC offsets for standard US time zones, and the standard dates and time of Daylight Saving Time begin/end enshrined in US Public Law.
 
 Todo
 ====

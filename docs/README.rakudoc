@@ -78,7 +78,7 @@ to allow multiple Date::Event objects for a single C<Date> object.
 =begin item
 Module B<DateTime::Timezones:auth<zef:guifa>>
 
-In contrast to Matthew Stuckwisch's module, this module does not use any
+In contrast to Matthew Stuckwisch's module, C<DateTime::US> does not use any
 of the IANA timezone database and relies only on the power of the Raku
 DateTime type, the short list of time zone UTC offsets
 for standard US time zones, and the standard dates and time of Daylight Saving Time
