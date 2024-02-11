@@ -1,6 +1,7 @@
 unit class DateTime::US;
 
 use Timezones::US;
+#use Date::Utils;
 
 has $.timezone is required;
 has $.name;
@@ -52,3 +53,45 @@ multi method to-utc(DateTime :$localtime! --> DateTime) {
     }
     $ut
 }
+
+=begin comment
+
+Update the DST (daylight savings time) module with the desired year
+
+  See: https://en.wikipedia.org/wiki/Uniform_Time_Act
+            effective as of 2007:
+
+           begins: 0200 local, second Sunday in March
+           ends:   0200 local, first Sunday in November
+
+    # get the known data
+    my $begin-month = %dst{$year}<begin><month>;
+    my $begin-day   = %dst{$year}<begin><day>;
+    my $end-month   = %dst{$year}<end><month>;
+    my $end-day     = %dst{$year}<end><day>;
+
+=end comment
+
+=finish
+our &begin-dst is export = &dst-begin;
+sub dst-begin(:$year! --> Date) is export {
+    # nth(2) dow(7) in month 3 at 0200 local
+    my $nth   = 2;
+    my $dow   = 7;
+    my $month = 3;
+    nth-dow-in-month :$year, :$nth, :$dow, :$month;
+}
+
+our &end-dst is export = &dst-end;
+sub dst-end(:$year --> Date) is export {
+    # nth(1) dow(7) in month 11 at 0200 local
+    my $nth   = 1;
+    my $dow   = 7;
+    my $month = 11;
+    nth-dow-in-month :$year, :$nth, :$dow, :$month;
+}
+
+sub get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {
+    
+}
+

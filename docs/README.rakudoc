@@ -9,6 +9,7 @@ B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST)
 
 =begin code :lang<raku>
 use DateTime::US;
+use DateTime::Subs; # part of the 'DateTime::US' distribution
 =end code
 
 =head1 DESCRIPTION
@@ -32,8 +33,8 @@ given in UTC and will normally be shown on a calendar in local time:
 
 =begin code
 my $tz = DateTime.new: :timezone('CST');
-my $sunrisez = DateTime.new: "2022-10-03T05:45:00Z";
-my $localtime = $tz.to-localtime :utc($sunrisez);
+my $sunriseZ = DateTime.new: "2022-10-03T05:45:00Z";
+my $localtime = $tz.to-localtime :utc($sunriseZ);
 =end code
 
 =head2 Class methods
@@ -49,16 +50,41 @@ B<to-utc>(DateTime :$localtime! --> DateTime) {...}
 
 Given a local time, convert to UTC with adjustment for DST.
 =end item
+
+=head2 Subroutines
+
+It is useful to have a "perpetual" calculation
+of the begin/end dates for DST for all years covered by the
+current governing federal law for the US.
+Assisted by the C<Date::Utils> module, the following routines do that, and they
+require an C<export> tag for use to avoid possible conflict from
+other modules.
+
+The C<:$year> argument defaults to the current year if it is not provided.
+
+=item begin-dst(:$year --> Date) is export(:begin-dst) {...}
+=item dst-begin(:$year --> Date) is export(:dst-begin) {...} # alias for begin-dst
+=item end-dst(:$year --> Date) is export(:end-dst) {...}
+=item dst-end(:$year --> Date) is export(:dst-end) {...} # alias for end-dst
+
+The final routine is for use by module C<Date::Event>.
+The C<:$set-id> argument is used to provide a globally unique ID (GUID)
+to allow multiple C<Date::Event> objects for a C<Date> in a C<Hash> keyed 
+by C<Date>s.
+
+=item get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
+
 =head1 SEE ALSO
 
 =begin item
-Module B<DateTime::Timezones>
+Module B<DateTime::Timezones:auth\<zef:guifa\>>
 
-In contrast to Matthew Stuckwisch's module, this module does not use any
-of the IANA timezone database and relies only on the power of the Raku
-DateTime type, the short list of time zone UTC offsets
-for standard US time zones, and the standard dates and time of Daylight Saving Time
-begin/end enshrined in US Public Law.
+In contrast to Matthew Stuckwisch's module, C<DateTime::US> does not use any
+of the IANA timezone database. It  relies only on the power of the Raku
+C<Date> and C<DateTime> types, the short list of time zone UTC offsets
+for standard US time zones, the standard dates and time of Daylight Saving Time
+begin/end times enshrined in US Public Law, and the "perpetual" C<Date> routines
+provided by module C<Date::Utils>.
 =end item
 
 =head1 Todo

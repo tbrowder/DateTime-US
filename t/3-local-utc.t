@@ -3,6 +3,11 @@ use Test;
 use DateTime::US;
 use Timezones::US;
 
+# test DST start and stop dates against known fed data
+use lib 't/data';
+use DST-Data;
+my %DST = %dst-data;
+
 plan 13;
 
 # test conversion between local time and UTC

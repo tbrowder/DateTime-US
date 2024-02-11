@@ -2,6 +2,23 @@ Revision history for DateTime-US
 
 {{$NEXT}}
 
+0.1.3  2024-02-11T11:38:40-06:00
+    - Remove all reduntant DST test data into a separate file
+    - Require module UUID::V4 for generating GUIDs
+    - Add new module DateTime::Subs for new subroutines	
+    - Add new subs to provide DST begin/end DateTimes for a year
+      (all require explicit export tags)
+      + begin-dst :$year => date DST begins at 0200 local
+      + dst-begin (alias)
+      + end-dst   :$year => date DST ends   at 0200 local
+      + dst-end   (alias)
+    - Add a sub compatible with Date::Event databases
+      (requires an explicit export tag)
+      + get-dst-dates(:$year, :$set-id)
+    - In contrast to module Timezones::US, the DST routines
+      are "perpetual" for the set of years governed by the
+      current US federal law
+
 0.1.2  2024-01-28T20:50:39-06:00
     - Add 3-OS tests
     - Use zef for Windows tests
