@@ -9,7 +9,7 @@ B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST)
 
 =begin code :lang<raku>
 use DateTime::US;
-use DateTime::Subs; # part of the Date::Time distribution
+use DateTime::Subs; # part of the C<DateTime::US> distribution
 =end code
 
 =head1 DESCRIPTION
@@ -67,9 +67,10 @@ The C<:$year> argument defaults to the current year if it is not provided.
 =item end-dst(:$year --> Date) is export(:end-dst) {...}
 =item dst-end(:$year --> Date) is export(:dst-end) {...}
 
-The final routine is for use by module Date::Event.
+The final routine is for use by module C<Date::Event>.
 The C<:$set-id> argument is used to provide a globally unique ID (GUID)
-to allow multiple Date::Event objects for a single C<Date> object.
+to allow multiple C<Date::Event> objects for a C<Date> in a C<Hash> keyed 
+by C<Date>s.
 
 =item get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
 

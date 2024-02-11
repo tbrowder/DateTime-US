@@ -10,7 +10,7 @@ SYNOPSIS
 
 ```raku
 use DateTime::US;
-use DateTime::Subs; # part of the Date::Time distribution
+use DateTime::Subs; # part of the C<DateTime::US> distribution
 ```
 
 DESCRIPTION
@@ -54,7 +54,7 @@ The `:$year` argument defaults to the current year if it is not provided.
 
   * dst-end(:$year --> Date) is export(:dst-end) {...}
 
-The final routine is for use by module Date::Event. The `:$set-id` argument is used to provide a globally unique ID (GUID) to allow multiple Date::Event objects for a single `Date` object.
+The final routine is for use by module `Date::Event`. The `:$set-id` argument is used to provide a globally unique ID (GUID) to allow multiple `Date::Event` objects for a `Date` in a `Hash` keyed by `Date`s.
 
   * get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
 
