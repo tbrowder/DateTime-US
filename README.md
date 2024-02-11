@@ -10,7 +10,7 @@ SYNOPSIS
 
 ```raku
 use DateTime::US;
-use DateTime::Subs; # part of the C<DateTime::US> distribution
+use DateTime::Subs; # part of the 'DateTime::US' distribution
 ```
 
 DESCRIPTION
@@ -61,7 +61,7 @@ The final routine is for use by module `Date::Event`. The `:$set-id` argument is
 SEE ALSO
 ========
 
-  * Module **DateTime::Timezones:auth<zef:guifa>**
+  * Module **DateTime::Timezones:auth\<zef:guifa\>**
 
     In contrast to Matthew Stuckwisch's module, `DateTime::US` does not use any of the IANA timezone database. It relies only on the power of the Raku `Date` and `DateTime` types, the short list of time zone UTC offsets for standard US time zones, the standard dates and time of Daylight Saving Time begin/end times enshrined in US Public Law, and the "perpetual" `Date` routines provided by module `Date::Utils`.
 

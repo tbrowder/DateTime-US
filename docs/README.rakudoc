@@ -9,7 +9,7 @@ B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST)
 
 =begin code :lang<raku>
 use DateTime::US;
-use DateTime::Subs; # part of the C<DateTime::US> distribution
+use DateTime::Subs; # part of the 'DateTime::US' distribution
 =end code
 
 =head1 DESCRIPTION
@@ -77,7 +77,7 @@ by C<Date>s.
 =head1 SEE ALSO
 
 =begin item
-Module B<DateTime::Timezones:auth<zef:guifa>>
+Module B<DateTime::Timezones:auth\<zef:guifa\>>
 
 In contrast to Matthew Stuckwisch's module, C<DateTime::US> does not use any
 of the IANA timezone database. It  relies only on the power of the Raku
