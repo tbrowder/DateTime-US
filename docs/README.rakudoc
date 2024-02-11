@@ -63,9 +63,9 @@ other modules.
 The C<:$year> argument defaults to the current year if it is not provided.
 
 =item begin-dst(:$year --> Date) is export(:begin-dst) {...}
-=item dst-begin(:$year --> Date) is export(:dst-begin) {...}
+=item dst-begin(:$year --> Date) is export(:dst-begin) {...} # alias for begin-dst
 =item end-dst(:$year --> Date) is export(:end-dst) {...}
-=item dst-end(:$year --> Date) is export(:dst-end) {...}
+=item dst-end(:$year --> Date) is export(:dst-end) {...}     # alias for begin-dst
 
 The final routine is for use by module C<Date::Event>.
 The C<:$set-id> argument is used to provide a globally unique ID (GUID)
