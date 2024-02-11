@@ -42,7 +42,7 @@ Class methods
 Subroutines
 -----------
 
-It is useful to have a "perpetual" calculation of the begin/end dates for DST for all years covered by the current governing federal law for the US thanks to the Date::Utils module. The following routines do that, and they require an `export` tag for use to avoid possible conflict from other modules.
+It is useful to have a "perpetual" calculation of the begin/end dates for DST for all years covered by the current governing federal law for the US. Assisted by the `Date::Utils` module, the following routines do that, and they require an `export` tag for use to avoid possible conflict from other modules.
 
 The `:$year` argument defaults to the current year if it is not provided.
 
