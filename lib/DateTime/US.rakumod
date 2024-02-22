@@ -1,21 +1,12 @@
 unit class DateTime::US;
 
 use Timezones::US;
-#use Date::Utils;
+use LocalTime;
 
 has $.timezone is required;
 has $.name;
 has $.utc-offset;
 has $.dst-exceptions;
-
-=begin comment
-#| Formatter for local time
-our $lt-format = sub ($self) is export {
-    sprintf "%04d-%02d-%02dT%02d:%02d:%02d",
-        .year, .month, .day, .hour, .minute, .second
-        given $self
-}
-=end comment
 
 submethod TWEAK {
     # only certain names are recognized
@@ -40,7 +31,11 @@ multi method to-localtime(DateTime :$utc! --> DateTime) {
         $utc-offset += 1; # make time 1 hour later
         $lt = $utc + Duration.new($utc-offset * SEC-PER-HOUR);
     }
-    $lt
+    # Use correct localtime as suffix
+    my $lt2 = LocalTime.new: :year($lt.year), :month($lt.month), :day($lt.day),
+                             :hour($lt.hour), :minute($lt.minute), 
+                             :second($lt.second), :tz-abbrev<cst>;
+    $lt2.dt
 }
 
 multi method to-utc(DateTime :$localtime! --> DateTime) {
