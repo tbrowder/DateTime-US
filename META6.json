@@ -8,6 +8,7 @@
   "depends": [
     "UUID::V4",
     "LocalTime",
+    "Date::Utils",
     "Timezones::US"
   ],
   "description": "Provides time zone and Daylight Saving Time (DST) infomation for US states and territories",
