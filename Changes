@@ -1,6 +1,7 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Add sub get-dst-dates-datehash
 
 0.1.4  2024-02-21T19:16:34-06:00
     - Use LocalTime to add correct suffix to local time output

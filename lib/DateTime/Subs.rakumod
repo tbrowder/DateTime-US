@@ -27,7 +27,12 @@ sub dst-end(:$year is copy --> Date) is export(:dst-end) {
     $d
 }
 
-sub get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {
+sub get-dst-dates-datehash(:$year!, --> Hash) is export(:get-dst-dates-datehash) {
+    my $b = dst-begin :$year;
+    my $e = dst-end :$year;
+}
+
+sub get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-dates) {
     my $b = dst-begin :$year;
     my $e = dst-end :$year;
     my %dst;
