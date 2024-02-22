@@ -5,6 +5,7 @@ Revision history for DateTime-US
     - Correct README example
     - Correct errors in use of LocalTime
     - Remove some old comments in code
+    - Add test for README example
 
 0.1.3  2024-02-11T11:38:40-06:00
     - Remove all reduntant DST test data into a separate file
