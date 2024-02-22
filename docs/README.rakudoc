@@ -2,7 +2,7 @@
 
 =head1 NAME
 
-B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST) 
+B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST)
                   information for US states and territories
 
 =head1 SYNOPSIS
@@ -14,12 +14,12 @@ use DateTime::Subs; # part of the 'DateTime::US' distribution
 
 =head1 DESCRIPTION
 
-Module B<DateTime::US> provides a class with methods used to help Raku 
-programs needing US time zone and DST information.  The user creates a 
-C<DateTime::US> object by providing a US time zone abbreviation (note the
-TZ input abbreviation may be in either format for standard or daylight 
-saving time, e.g., 'CST' or 'CDT').  The list of known data may be
-listed without an object:
+Module B<DateTime::US> provides a class with methods used to help Raku
+programs needing US time zone and DST information.  The user creates a
+C<DateTime::US> object by providing a US time zone abbreviation (note
+the TZ input abbreviation may be in either format for standard or
+daylight saving time, e.g., 'CST' or 'CDT').  The list of known data
+may be listed without an object:
 
 =begin code
 $ raku
@@ -27,9 +27,10 @@ $ raku
 > show-us-data;
 =end code
 
-The main use case that motivated the module is to convert time in UTC to local
-time for creating calendars and almanacs. For example, local Sunrise is
-given in UTC and will normally be shown on a calendar in local time:
+The main use case that motivated the module is to convert time in UTC
+to local time for creating calendars and almanacs. For example, local
+Sunrise is given in UTC and will normally be shown on a calendar in
+local time:
 
 =begin code
 my $tz = DateTime::US.new: :timezone<CST>;
@@ -71,7 +72,7 @@ The C<:$year> argument defaults to the current year if it is not provided.
 
 The final routine is for use by module C<Date::Event>.
 The C<:$set-id> argument is used to provide a globally unique ID (GUID)
-to allow multiple C<Date::Event> objects for a C<Date> in a C<Hash> keyed 
+to allow multiple C<Date::Event> objects for a C<Date> in a C<Hash> keyed
 by C<Date>s.
 
 =item get-dst-dates(:$year!, :$set-id! --> Hash) is export(:get-dst-date) {...}
