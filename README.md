@@ -24,9 +24,11 @@ Module **DateTime::US** provides a class with methods used to help Raku programs
 
 The main use case that motivated the module is to convert time in UTC to local time for creating calendars and almanacs. For example, local Sunrise is given in UTC and will normally be shown on a calendar in local time:
 
-    my $tz = DateTime.new: :timezone('CST');
-    my $sunriseZ = DateTime.new: "2022-10-03T05:45:00Z";
+    my $tz = DateTime::US.new: :timezone<CST>;
+    my $sunriseZ = DateTime.new: "2024-02-21T12:23:00Z";
+    say $sunriseZ; # OUTPUT: «2024-02-21T12:23:00Z␤»
     my $localtime = $tz.to-localtime :utc($sunriseZ);
+    say $localtime; # OUTPUT: «2024-02-21T06:23:00 CST␤»
 
 Class methods
 -------------
