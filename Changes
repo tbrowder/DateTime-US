@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+
+0.1.6  2025-04-03T16:58:13-05:00
     - Add new module DateTime::US:Subs
       + utility subs for other time programs or modules
     - Update docs and copyright year
