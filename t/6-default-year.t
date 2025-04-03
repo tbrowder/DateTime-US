@@ -1,6 +1,6 @@
 use Test;
 
-use DateTime::Subs :ALL;
+use DateTime::US::Subs :ALL;
 
 # test DST start and stop dates against known fed data
 use lib 't/data';

@@ -3,6 +3,8 @@ unit class DateTime::US;
 use Timezones::US;
 use LocalTime;
 
+use DateTime::US::Subs;
+
 has $.timezone is required;
 has $.name;
 has $.utc-offset;

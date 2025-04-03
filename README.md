@@ -10,8 +10,15 @@ SYNOPSIS
 
 ```raku
 use DateTime::US;
-use DateTime::Subs; # part of the 'DateTime::US' distribution
 ```
+
+...work with US timezone calculations
+
+```raku
+use DateTime::US::Subs :ALL;
+```
+
+This module is part of the 'DateTime::US' distribution, but it's not required for the use of the base module.
 
 DESCRIPTION
 ===========
@@ -41,8 +48,8 @@ Class methods
 
     Given a local time, convert to UTC with adjustment for DST.
 
-Subroutines
------------
+Module 'DateTime::US::Subs'
+---------------------------
 
 It is useful to have a "perpetual" calculation of the begin/end dates for DST for all years covered by the current governing federal law for the US. Assisted by the `Date::Utils` module, the following routines do that, and they require an `export` tag for use to avoid possible conflict from other modules.
 

@@ -1,6 +1,6 @@
 use Test;
 
-use DateTime::Subs :ALL;
+use DateTime::US::Subs :ALL;
 use UUID::V4;
 
 # test DST start and stop dates against known fed data

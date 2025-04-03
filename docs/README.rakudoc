@@ -9,8 +9,16 @@ B<DateTime::US> - Provides time zone (TZ) and Daylight Saving Time (DST)
 
 =begin code :lang<raku>
 use DateTime::US;
-use DateTime::Subs; # part of the 'DateTime::US' distribution
 =end code
+
+...work with US timezone calculations
+
+=begin code :lang<raku>
+use DateTime::US::Subs :ALL; 
+=end code
+
+This module is part of the 'DateTime::US' distribution,
+but it's not required for the use of the base module.
 
 =head1 DESCRIPTION
 
@@ -54,7 +62,7 @@ B<to-utc>(DateTime :$localtime! --> DateTime) {...}
 Given a local time, convert to UTC with adjustment for DST.
 =end item
 
-=head2 Subroutines
+=head2 Module 'DateTime::US::Subs'
 
 It is useful to have a "perpetual" calculation
 of the begin/end dates for DST for all years covered by the

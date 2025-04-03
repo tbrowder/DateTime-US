@@ -1,6 +1,8 @@
 Revision history for DateTime-US
 
 {{$NEXT}}
+    - Add new module DateTime::US:Subs
+      + utility subs for other time programs or modules
 
 0.1.5  2024-02-22T10:40:49-06:00
     - Add sub get-dst-dates-datehash

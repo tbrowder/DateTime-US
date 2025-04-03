@@ -1,7 +1,8 @@
 use Test;
 
-use DateTime::US;
 use Timezones::US;
+
+use DateTime::US;
 
 plan 32;
 

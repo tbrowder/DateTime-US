@@ -1,7 +1,8 @@
 use Test;
 
-use DateTime::US;
 use Timezones::US;
+
+use DateTime::US;
 
 # test DST start and stop dates against known fed data
 use lib 't/data';

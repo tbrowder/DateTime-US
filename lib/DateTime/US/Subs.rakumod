@@ -1,4 +1,4 @@
-unit module DateTime::Subs;
+unit module DateTime::US::Subs;
 
 use Date::Utils;
 

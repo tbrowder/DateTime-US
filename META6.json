@@ -16,8 +16,8 @@
   "name": "DateTime::US",
   "perl": "6.d",
   "provides": {
-    "DateTime::Subs": "lib/DateTime/Subs.rakumod",
-    "DateTime::US": "lib/DateTime/US.rakumod"
+    "DateTime::US": "lib/DateTime/US.rakumod",
+    "DateTime::US::Subs": "lib/DateTime/US/Subs.rakumod"
   },
   "resources": [
   ],
